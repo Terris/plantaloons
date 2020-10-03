@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
+import AppProvider from "./components/AppProvider";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [ready, setReady] = React.useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  async function loadResourcesAsync() {
+    await Promise.all([
+      Font.loadAsync({
+        LibreFranklinRegular: require("./assets/fonts/LibreFranklin-Regular.ttf"),
+        LibreFranklinItalic: require("./assets/fonts/LibreFranklin-Italic.ttf"),
+        LibreFranklinBold: require("./assets/fonts/LibreFranklin-Bold.ttf"),
+        VollkornSemiBold: require("./assets/fonts/Vollkorn-SemiBold.ttf"),
+        VollkornExtraBold: require("./assets/fonts/Vollkorn-ExtraBold.ttf"),
+      }),
+    ]);
+  }
+
+  if (!ready) {
+    return (
+      <AppLoading
+        startAsync={() => loadResourcesAsync()}
+        onFinish={() => setReady(true)}
+        onError={console.warn}
+      />
+    );
+  }
+
+  return <AppProvider />;
+}
