@@ -1,9 +1,9 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import Router from "./Router";
+import { Router } from "../Router";
 
-const AppProvider = () => {
+export const AppProvider = () => {
   return (
     <SafeAreaProvider>
       <Router />
@@ -11,5 +11,3 @@ const AppProvider = () => {
     </SafeAreaProvider>
   );
 };
-
-export default AppProvider;

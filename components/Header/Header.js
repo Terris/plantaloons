@@ -1,10 +1,10 @@
 import React from "react";
 import { View } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import { Button } from "./ui";
-import { Layout } from "../styles";
+import { Button } from "../ui";
+import { Layout } from "../../styles";
 
-const Header = ({ previous, navigation, scene }) => {
+export const Header = ({ previous, navigation, scene }) => {
   return (
     <View style={Layout.headerWrapper}>
       <View style={{ width: "50%" }}>
@@ -29,5 +29,3 @@ const Header = ({ previous, navigation, scene }) => {
     </View>
   );
 };
-
-export default Header;

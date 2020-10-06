@@ -1,9 +1,9 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Header from "./Header";
-import HomeScreen from "../screens/HomeScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import { Header } from "../Header";
+import HomeScreen from "../../screens/HomeScreen";
+import SettingsScreen from "../../screens/SettingsScreen";
 
 const ROUTES = [
   {
@@ -20,7 +20,7 @@ const ROUTES = [
 
 const Stack = createStackNavigator();
 
-const Router = () => {
+export const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -42,5 +42,3 @@ const Router = () => {
     </NavigationContainer>
   );
 };
-
-export default Router;
