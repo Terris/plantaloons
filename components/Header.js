@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import Button from "./Button";
+import { Button } from "./ui";
 import { Layout } from "../styles";
 
 const Header = ({ previous, navigation, scene }) => {
